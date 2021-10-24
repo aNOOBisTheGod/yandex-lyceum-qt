@@ -170,7 +170,7 @@ border-color: rgba(255, 14, 14, 100);</string>
     <string>SUBMIT</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="elem1_2">
+  <widget class="QLineEdit" name="chain">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -201,11 +201,11 @@ border-color: rgba(255, 14, 14, 100);</string>
     <string>Insert chemistry chain:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="solveeq_2">
+  <widget class="QPushButton" name="solvec">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>640</y>
+     <x>120</x>
+     <y>600</y>
      <width>191</width>
      <height>191</height>
     </rect>
@@ -281,7 +281,7 @@ border-color: rgba(255, 14, 14, 100);</string>
     <string>Result</string>
    </property>
   </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit">
+  <widget class="QPlainTextEdit" name="res2">
    <property name="enabled">
     <bool>false</bool>
    </property>
@@ -289,9 +289,14 @@ border-color: rgba(255, 14, 14, 100);</string>
     <rect>
      <x>500</x>
      <y>380</y>
-     <width>381</width>
-     <height>341</height>
+     <width>441</width>
+     <height>441</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="QLineEdit" name="res1">
@@ -302,9 +307,14 @@ border-color: rgba(255, 14, 14, 100);</string>
     <rect>
      <x>490</x>
      <y>90</y>
-     <width>161</width>
+     <width>431</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
    </property>
   </widget>
  </widget>

@@ -74,4 +74,4 @@ def chain(text):
     return out
 
 
-print(*chain('Ca CaO Ca(OH)2 Ca3(PO4)2'), sep='\n')
+# print(*chain('Ca CaO Ca(OH)2 Ca3(PO4)2'), sep='\n')
