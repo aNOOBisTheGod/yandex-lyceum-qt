@@ -20,8 +20,37 @@ def equation(equation):
 
 
 def quadraticequation(a, b, c):
-    return 0
+    if a == 0:
+        if b == 0:
+            if c == 0:
+                return ['R']
+            else:
+                return ['∅']
+        else:
+            return[-c / b]
+    else:
+        D = b ** 2 - 4 * a * c
+        if D < 0:
+            return ['∅']
+        elif D == 0:
+            return [-b / (2 * a)]
+        else:
+            x1 = (-b - D ** 0.5) / (2 * a)
+            x2 = (-b + D ** 0.5) / (2 * a)
+            return [x1, x2]
 
 
-
-print(equation('x ** 2 = 10'))
+def niceeval(a):
+    a = a.split(' ')
+    x = a.index('**')
+    power = int(a[x + 1])
+    if power <= 1:
+        return ''.join(a)
+    letter = a[x - 1]
+    a[x] = ' '
+    powerstr = f'* {letter} '
+    for _ in range(power - 2):
+        powerstr += f'* {letter} '
+    a[x + 1] = powerstr
+    a = ''.join(a)
+    return a

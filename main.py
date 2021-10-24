@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QDialog, QTableWidgetItem, QHeaderView
 from PyQt5 import QtWidgets, uic
 import sqlite3
 import usefulwidgets
-import chemistscreen
+from screens import chemistscreen, mathscreen
 
 
 class Main(QDialog):
@@ -21,6 +21,7 @@ class Main(QDialog):
         self.exitbutton.clicked.connect(self.exit)
         self.select_data()
         self.chemb.clicked.connect(self.chemist)
+        self.mathb.clicked.connect(self.math)
         self.show()
 
     def select_data(self):
@@ -49,6 +50,12 @@ class Main(QDialog):
         dlg.exec()
         self.chemb.setDisabled(False)
 
+    def math(self):
+        self.mathb.setDisabled(True)
+        dlg = mathscreen.Math()
+        dlg.exec()
+        self.mathb.setDisabled(False)
+
 
 def getdata():
     con = sqlite3.connect('data_db.sqlite')
@@ -66,6 +73,3 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     window = Main()
     app.exec_()
-
-
-

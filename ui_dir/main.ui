@@ -46,7 +46,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="mathb">
    <property name="geometry">
     <rect>
      <x>70</x>
