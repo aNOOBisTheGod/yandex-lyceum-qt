@@ -18,6 +18,8 @@ ____
 ___
 ## Для запуска:
 ```diff
+git clone https://github.com/aNOOBisTheGod/yandex-lyceum-qt
+cd yandex-lyceum-qt
 pip install -r requirements.txt
 python main.py
 ```
