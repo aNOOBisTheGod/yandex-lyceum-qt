@@ -2,24 +2,25 @@ import datetime
 import sys
 import socket
 
-from PyQt5.QtSql import QSqlDatabase, QSqlTableModel
-from PyQt5.QtWidgets import QDialog, QTableView, QTableWidgetItem, QHeaderView
+from PyQt5.QtWidgets import QDialog, QTableWidgetItem, QHeaderView
 
-from PyQt5 import QtCore, QtGui, QtWidgets, uic
+from PyQt5 import QtWidgets, uic
 import sqlite3
 import usefulwidgets
+import chemistscreen
 
 
-class Example(QDialog):
+class Main(QDialog):
     def __init__(self):
         getdata()
-        super(Example, self).__init__()
-        uic.loadUi('main.ui', self)
+        super(Main, self).__init__()
+        uic.loadUi('ui_dir/main.ui', self)
         self.connection = sqlite3.connect("data_db.sqlite")
         header = self.dbviewer.horizontalHeader()
         header.setSectionResizeMode(QHeaderView.ResizeToContents)
         self.exitbutton.clicked.connect(self.exit)
         self.select_data()
+        self.chemb.clicked.connect(self.chemist)
         self.show()
 
     def select_data(self):
@@ -39,10 +40,14 @@ class Example(QDialog):
         if dlg.exec():
             exit(0)
         else:
-            dlg = QDialog(self)
-            dlg.setWindowTitle("Ok Then")
-            dlg.setGeometry(900, 500, 200, 40)
+            dlg = usefulwidgets.OkThen()
             dlg.exec()
+
+    def chemist(self):
+        self.chemb.setDisabled(True)
+        dlg = chemistscreen.Chemist()
+        dlg.exec()
+        self.chemb.setDisabled(False)
 
 
 def getdata():
@@ -59,7 +64,7 @@ def getdata():
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    window = Example()
+    window = Main()
     app.exec_()
 
 
