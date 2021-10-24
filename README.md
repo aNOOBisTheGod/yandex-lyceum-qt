@@ -15,3 +15,9 @@
 По возможности все компилируется в exe файл
 ____
 [Похожий по функциям проект на flutter](https://github.com/aNOOBisTheGod/schoolhelper)
+___
+## Для запуска:
+```diff
+pip install -r requirements.txt
+python main.py
+```
