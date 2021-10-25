@@ -43,7 +43,11 @@ def quadraticequation(a, b, c):
 def niceeval(a):
     a = a.split(' ')
     x = a.index('**')
-    power = int(a[x + 1])
+    power = a[x + 1]
+    try:
+        power = int(power)
+    except Exception as e:
+        return ''.join(a)
     if power <= 1:
         return ''.join(a)
     letter = a[x - 1]

@@ -35,16 +35,11 @@ class Chart(QDialog):
         self.figure = plt.figure()
         self.canvas = FigureCanvas(self.figure)
         self.toolbar = NavigationToolbar(self.canvas, self)
-        self.button = QPushButton('Build')
-        self.button.clicked.connect(self.build)
         layout = QVBoxLayout()
         layout.addWidget(self.toolbar)
         layout.addWidget(self.canvas)
-        layout.addWidget(self.button)
         self.setLayout(layout)
-
-    def build(self):
         self.figure.clear()
         ax = self.figure.add_subplot(111)
-        ax.plot(self.arry, self.arrx, '.')
+        ax.plot(self.arrx, self.arry, '.')
         self.canvas.draw()

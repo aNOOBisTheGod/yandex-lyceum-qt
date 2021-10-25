@@ -72,6 +72,3 @@ def chain(text):
         else:
             out.append(str(c) + ':  ' + ''.join(res)[1:])
     return out
-
-
-# print(*chain('Ca CaO Ca(OH)2 Ca3(PO4)2'), sep='\n')

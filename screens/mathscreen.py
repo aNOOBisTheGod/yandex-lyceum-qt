@@ -16,22 +16,29 @@ class Math(QDialog):
         self.chartb.clicked.connect(self.buildchart)
 
     def buildchart(self):
-        func = functions.math.niceeval(self.function.text()).replace('x', '{}')
-        arry = []
-        arrx = []
-        for i in range(-1000, 1000):
+        try:
             try:
-                arr = [i / 100 for _ in range(func.count('{}'))]
+                func = functions.math.niceeval(self.function.text()).replace('x', '{}')
+            except Exception as e:
+                print(e)
+                return
+            arry = []
+            arrx = []
+            for x in range(-1000, 1000):
                 try:
-                    x = eval(func.format(*arr))
-                    arry.append(i / 100)
-                    arrx.append(x)
-                except ZeroDivisionError:
+                    arr = [x / 100 for _ in range(func.count('{}'))]
+                    try:
+                        y = eval(func.format(*arr))
+                        arrx.append(x / 100)
+                        arry.append(y)
+                    except Exception as e:
+                        print(e)
+                except:
                     pass
-            except:
-                pass
-        dlg = usefulwidgets.Chart(arrx, arry)
-        dlg.exec()
+            dlg = usefulwidgets.Chart(arrx, arry)
+            dlg.exec()
+        except Exception as e:
+            print(e)
 
     def closeEvent(self, event):
         dlg = usefulwidgets.CustomDialog('quit?', 'R u sure u wanna exit?')
