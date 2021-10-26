@@ -1,3 +1,6 @@
+import math
+
+
 def equation(equation):
     if equation.count('x') == 2:
         return 'Inset equation with only 1 unknown statement'
@@ -51,10 +54,59 @@ def niceeval(a):
     if power <= 1:
         return ''.join(a)
     letter = a[x - 1]
+    a[x - 1] = '(' + a[x - 1]
     a[x] = ' '
     powerstr = f'* {letter} '
     for _ in range(power - 2):
         powerstr += f'* {letter} '
-    a[x + 1] = powerstr
+    a[x + 1] = powerstr + ')'
     a = ''.join(a)
     return a
+
+
+def diophantic(line):
+    a, b, c = map(int, line.split())
+    d, x, y = megagcd(a, b)
+    if c % d != 0:
+        return 'Impossible'
+    else:
+        x *= c // d
+        y *= c // d
+
+        a //= d
+        b //= d
+        return ','.join([x % b, y + (x - x % b) // b * a])
+
+
+def megagcd(a, b):
+    if b == 0:
+        return a, 1, 0
+    d, x, y = megagcd(b, a % b)
+    return d, y, x - y * (a // b)
+
+
+def median(a):
+    a = list(map(float, a.split()))
+    d = {}
+    a.sort()
+    for i in range(len(a) - 1):
+        if a[i] == a[i + 1]:
+            if a[i] in d:
+                d[a[i]] += 1
+            else:
+                d[a[i]] = 1
+    max = -math.inf
+    res = -math.inf
+    for k, i in d.items():
+        if i > max:
+            res = k
+    return str(res)
+
+
+def mean(line):
+    a = list(map(float, line.split()))
+    res = 0.0
+    for i in a:
+        res += i
+    res /= len(a)
+    return str(res)

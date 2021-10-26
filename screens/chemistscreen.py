@@ -32,16 +32,14 @@ class Chemist(QDialog):
         self.anstext = functions.chemistry.solveequation(x, y)
         self.res1.setText(self.anstext)
 
-
     def closeEvent(self, event):
-        dlg = usefulwidgets.CustomDialog('quit?', 'R u sure u wanna exit?')
+        dlg = usefulwidgets.CustomDialog('EXIT', 'R u sure u wanna exit?')
         if dlg.exec():
             event.accept()
         else:
             event.ignore()
-            if not dlg.exec():
-                dlg = usefulwidgets.OkThen()
-                dlg.exec()
+            dlg = usefulwidgets.OkThen()
+            dlg.exec()
 
 
 if __name__ == '__main__':
