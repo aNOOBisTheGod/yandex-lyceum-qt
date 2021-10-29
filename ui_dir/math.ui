@@ -36,7 +36,7 @@
     <rect>
      <x>30</x>
      <y>10</y>
-     <width>181</width>
+     <width>201</width>
      <height>16</height>
     </rect>
    </property>
@@ -46,7 +46,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Insert equation with 1 unknown</string>
+    <string>Insert equation with 1 unknown(x)</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="eq1">
@@ -57,6 +57,9 @@
      <width>151</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>x / 3 = 13</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -170,6 +173,9 @@ color: rgba(240, 22, 204, 150);</string>
      <height>20</height>
     </rect>
    </property>
+   <property name="text">
+    <string>1 4 3</string>
+   </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
@@ -236,6 +242,9 @@ color: rgba(240, 22, 204, 150);</string>
      <width>181</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>x ** 2</string>
    </property>
   </widget>
   <widget class="QPushButton" name="chartb">
@@ -378,8 +387,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
      <height>20</height>
     </rect>
    </property>
+   <property name="text">
+    <string>1 2 3</string>
+   </property>
   </widget>
-  <widget class="QPushButton" name="fs2_2">
+  <widget class="QPushButton" name="fs3">
    <property name="geometry">
     <rect>
      <x>760</x>
@@ -431,10 +443,10 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
   <widget class="QLabel" name="res3">
    <property name="geometry">
     <rect>
-     <x>650</x>
+     <x>670</x>
      <y>80</y>
      <width>81</width>
-     <height>16</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
@@ -490,43 +502,13 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
     <string>mean</string>
    </property>
   </widget>
-  <widget class="QDateTimeEdit" name="time1">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>290</y>
-     <width>194</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QDateTimeEdit" name="time2">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>350</y>
-     <width>194</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="timesign">
-   <property name="geometry">
-    <rect>
-     <x>532</x>
-     <y>320</y>
-     <width>21</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="Line" name="line_5">
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>210</y>
+     <y>200</y>
      <width>21</width>
-     <height>671</height>
+     <height>681</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -594,22 +576,6 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="timeres">
-   <property name="geometry">
-    <rect>
-     <x>520</x>
-     <y>430</y>
-     <width>241</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::Box</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="Line" name="line_6">
    <property name="geometry">
     <rect>
@@ -619,29 +585,17 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
      <height>16</height>
     </rect>
    </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <property name="lineWidth">
+    <number>10</number>
+   </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="label_16">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>230</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>Calcs</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="calcopen">
    <property name="geometry">
     <rect>
      <x>520</x>
@@ -701,6 +655,25 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgb
    </property>
    <property name="text">
     <string>*ints only</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>260</y>
+     <width>401</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Btw when u solve problems
+yourself u become smarter</string>
    </property>
   </widget>
  </widget>

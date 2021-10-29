@@ -1,4 +1,5 @@
 import math
+import os
 import sys
 
 from PyQt5.QtWidgets import QDialog, QTableWidgetItem, QHeaderView, QMessageBox
@@ -16,6 +17,10 @@ class Math(QDialog):
         uic.loadUi('ui_dir/math.ui', self)
         self.chartb.clicked.connect(self.buildchart)
         self.solveall.clicked.connect(self.solve)
+        self.calcopen.clicked.connect(lambda x, command='calc': os.system(command))
+        self.fs1.clicked.connect(self.binsolve)
+        self.fs3.clicked.connect(self.diophant)
+        self.fs2.clicked.connect(self.quadratic)
 
     def buildchart(self):
         try:
@@ -66,6 +71,25 @@ class Math(QDialog):
                 self.meanres.setText(functions.mathematics.mean(self.mean.text()))
         except Exception as e:
             usefulwidgets.Customalert(self, e)
+
+    def binsolve(self):
+        try:
+            self.res1.setText(functions.mathematics.fastequation(self.eq1.text()))
+        except Exception as e:
+            usefulwidgets.Customalert(self, e)
+
+    def diophant(self):
+        try:
+            self.res3.setText(functions.mathematics.diophantic(self.eq3.text()))
+        except Exception as e:
+            usefulwidgets.Customalert(self, e)
+
+    def quadratic(self):
+        try:
+            self.res2.setText(functions.mathematics.quadratic(self.eq2.text()))
+        except Exception as e:
+            usefulwidgets.Customalert(self, e)
+
 
 
 if __name__ == '__main__':

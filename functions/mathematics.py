@@ -1,4 +1,5 @@
 import math
+import time
 
 
 def equation(equation):
@@ -75,7 +76,7 @@ def diophantic(line):
 
         a //= d
         b //= d
-        return ','.join([x % b, y + (x - x % b) // b * a])
+        return ', '.join([str(x % b), str(y + (x - x % b) // b * a)])
 
 
 def megagcd(a, b):
@@ -110,3 +111,31 @@ def mean(line):
         res += i
     res /= len(a)
     return str(res)
+
+
+def fastequation(eq):
+    right = 1000000
+    left = -1000000
+    ans = float(eq.split('=')[1])
+    eq = eq.split('=')[0].replace('x', '{}')
+    for i in range(100):
+        middle = (right + left) / 2
+        print(middle)
+        e = float(eval(eq.format(middle)))
+        if e > ans:
+            right = middle
+        elif e < ans:
+            left = middle
+        else:
+            return str(middle)
+    return '± ' + str(middle.__round__())
+
+def quadratic(eq):
+    a, b, c = map(int, eq.split())
+    d = b ** 2 - (4 * a * c)
+    if d < 0.0:
+        return 'None'
+    elif d > 0.0:
+        return ', '.join(list(map(str, [(-b + math.sqrt(d)) /(2 * a), (-b - math.sqrt(d)) /(2 * a)])))
+    else:
+        return str(b /(2 * a))

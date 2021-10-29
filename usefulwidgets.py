@@ -1,8 +1,10 @@
-from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout, QLabel, QMainWindow, QPushButton, QMessageBox
 import matplotlib.pyplot as plt
 import random
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
 
 
 class CustomDialog(QDialog):
@@ -47,12 +49,12 @@ class Chart(QDialog):
 
 def returnalert(self, e):
     return QMessageBox.critical(
-            self,
-            "Something went wrong",
-            f"This can help u:\n{e}",
-            buttons=QMessageBox.Discard,
-            defaultButton=QMessageBox.Discard,
-        )
+        self,
+        "Something went wrong",
+        f"This can help u:\n{e}",
+        buttons=QMessageBox.Discard,
+        defaultButton=QMessageBox.Discard,
+    )
 
 
 class Customalert(Exception):
