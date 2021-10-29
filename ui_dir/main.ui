@@ -78,7 +78,7 @@
     <string>CHEMISTRY</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="itb">
    <property name="geometry">
     <rect>
      <x>240</x>

@@ -1,14 +1,11 @@
-import math
 import os
 import sys
 
-from PyQt5.QtWidgets import QDialog, QTableWidgetItem, QHeaderView, QMessageBox
+from PyQt5.QtWidgets import QDialog
 
 from PyQt5 import QtWidgets, uic
-
-import functions.chemistry
 import usefulwidgets
-import functions.mathematics
+from functions.mathematics import *
 
 
 class Math(QDialog):
@@ -26,7 +23,7 @@ class Math(QDialog):
         try:
             try:
                 if '**' in self.function.text():
-                    func = functions.mathematics.niceeval(self.function.text()).replace('x', '{}')
+                    func = niceeval(self.function.text()).replace('x', '{}')
                 else:
                     func = self.function.text()
             except Exception as e:
@@ -66,27 +63,27 @@ class Math(QDialog):
             if self.lcm.text() != '':
                 self.lcmres.setText(str(math.lcm(*list(map(int, self.gcd.text().split())))))
             if self.median.text() != '':
-                self.medianres.setText(functions.mathematics.median(self.median.text()))
+                self.medianres.setText(median(self.median.text()))
             if self.mean.text() != '':
-                self.meanres.setText(functions.mathematics.mean(self.mean.text()))
+                self.meanres.setText(mean(self.mean.text()))
         except Exception as e:
             usefulwidgets.Customalert(self, e)
 
     def binsolve(self):
         try:
-            self.res1.setText(functions.mathematics.fastequation(self.eq1.text()))
+            self.res1.setText(fastequation(self.eq1.text()))
         except Exception as e:
             usefulwidgets.Customalert(self, e)
 
     def diophant(self):
         try:
-            self.res3.setText(functions.mathematics.diophantic(self.eq3.text()))
+            self.res3.setText(diophantic(self.eq3.text()))
         except Exception as e:
             usefulwidgets.Customalert(self, e)
 
     def quadratic(self):
         try:
-            self.res2.setText(functions.mathematics.quadratic(self.eq2.text()))
+            self.res2.setText(quadratic(self.eq2.text()))
         except Exception as e:
             usefulwidgets.Customalert(self, e)
 
