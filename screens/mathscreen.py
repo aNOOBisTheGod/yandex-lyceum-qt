@@ -18,6 +18,7 @@ class Math(QDialog):
         self.fs1.clicked.connect(self.binsolve)
         self.fs3.clicked.connect(self.diophant)
         self.fs2.clicked.connect(self.quadratic)
+        self.show()
 
     def buildchart(self):
         try:
@@ -48,13 +49,7 @@ class Math(QDialog):
             usefulwidgets.Customalert(self, e)
 
     def closeEvent(self, event):
-        dlg = usefulwidgets.CustomDialog('EXIT', 'R u sure u wanna exit?')
-        if dlg.exec():
-            event.accept()
-        else:
-            event.ignore()
-            dlg = usefulwidgets.OkThen()
-            dlg.exec()
+        usefulwidgets.on_close(event)
 
     def solve(self):
         try:
@@ -86,7 +81,6 @@ class Math(QDialog):
             self.res2.setText(quadratic(self.eq2.text()))
         except Exception as e:
             usefulwidgets.Customalert(self, e)
-
 
 
 if __name__ == '__main__':

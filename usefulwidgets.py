@@ -60,3 +60,13 @@ def returnalert(self, e):
 class Customalert(Exception):
     def __init__(self, class_, err):
         returnalert(class_, err)
+
+
+def on_close(event):
+    dlg = CustomDialog('EXIT', 'R u sure u wanna exit?')
+    if dlg.exec():
+        event.accept()
+    else:
+        event.ignore()
+        dlg = OkThen()
+        dlg.exec()

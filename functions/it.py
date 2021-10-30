@@ -1,23 +1,28 @@
 import string
 
 
-def fromidektotenth(num, base):
+def totenth(num, base):
+    num = num.upper()
     num = num.split('.')
     res1 = 0.0
     for power, n in enumerate(reversed(list(num[0]))):
-        if n in string.ascii_uppercase:
-            n = 10 + string.ascii_uppercase.find(n)
-        res1 += n * base ** power
+        try:
+            x = int(n)
+        except:
+            x = 10 + string.ascii_uppercase.find(n)
+        res1 += x * base ** power
     res2 = 0.0
     if len(num) > 1:
         for power, n in enumerate(list(num[1])):
-            if n in string.ascii_uppercase:
-                n = 10 + string.ascii_uppercase.find(n)
-            res2 += n * base ** -(power + 1)
-    return res1 + res2
+            try:
+                x = int(n)
+            except:
+                x = 10 + string.ascii_uppercase.find(n)
+            res2 += x * base ** -(power + 1)
+    return str(res1 + res2)
 
 
-def fromtenthtoidek(num, base):
+def fromtenth(num, base):
     x = int(num.split('.')[0])
     res = ''
     while x >= base:
@@ -30,16 +35,11 @@ def fromtenthtoidek(num, base):
     res = res[::-1]
     if len(num.split('.')) > 1:
         res += '.'
+        x = float('0.' + num.split('.')[1])
         for i in range(5):
-            x = float(num.split('.')[1])
             x *= base
-            print(x)
             res += str(x)[0] if x % 1 < 10 else string.ascii_uppercase[x // 1 - 10]
-
+            x %= 1
+            if x == 0:
+                return res
     return res
-
-
-print(fromtenthtoidek('39.5', 4))
-#
-# def systemconverter(num, basef, baset):
-#

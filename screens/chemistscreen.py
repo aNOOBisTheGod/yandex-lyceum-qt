@@ -33,13 +33,7 @@ class Chemist(QDialog):
         self.res1.setText(self.anstext)
 
     def closeEvent(self, event):
-        dlg = usefulwidgets.CustomDialog('EXIT', 'R u sure u wanna exit?')
-        if dlg.exec():
-            event.accept()
-        else:
-            event.ignore()
-            dlg = usefulwidgets.OkThen()
-            dlg.exec()
+        usefulwidgets.on_close(event)
 
 
 if __name__ == '__main__':

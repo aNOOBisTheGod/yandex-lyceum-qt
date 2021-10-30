@@ -13,7 +13,10 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLineEdit" name="num1">
+  <property name="whatsThis">
+   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;idek&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+  </property>
+  <widget class="QLineEdit" name="numt1">
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -22,11 +25,14 @@
      <height>51</height>
     </rect>
    </property>
+   <property name="text">
+    <string>1a2</string>
+   </property>
   </widget>
-  <widget class="QSpinBox" name="sys2">
+  <widget class="QSpinBox" name="syst2">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>620</x>
      <y>160</y>
      <width>61</width>
      <height>22</height>
@@ -39,10 +45,10 @@
     <number>30</number>
    </property>
    <property name="value">
-    <number>10</number>
+    <number>9</number>
    </property>
   </widget>
-  <widget class="QSpinBox" name="sys1">
+  <widget class="QSpinBox" name="syst1">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -61,7 +67,7 @@
     <number>30</number>
    </property>
    <property name="value">
-    <number>10</number>
+    <number>12</number>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -105,7 +111,7 @@ converted number</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>480</x>
+     <x>620</x>
      <y>120</y>
      <width>47</width>
      <height>31</height>
@@ -121,10 +127,13 @@ converted number</string>
 convert</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="rest">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>670</x>
+     <x>810</x>
      <y>140</y>
      <width>113</width>
      <height>51</height>
@@ -149,7 +158,7 @@ convert</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>680</x>
+     <x>820</x>
      <y>110</y>
      <width>51</width>
      <height>21</height>
@@ -238,7 +247,7 @@ convert</string>
     <string>System of number 1</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="sys2_2">
+  <widget class="QSpinBox" name="syso2">
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -254,10 +263,10 @@ convert</string>
     <number>30</number>
    </property>
    <property name="value">
-    <number>10</number>
+    <number>9</number>
    </property>
   </widget>
-  <widget class="QSpinBox" name="sys1_2">
+  <widget class="QSpinBox" name="syso1">
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -276,7 +285,7 @@ convert</string>
     <number>30</number>
    </property>
    <property name="value">
-    <number>10</number>
+    <number>11</number>
    </property>
   </widget>
   <widget class="QLabel" name="label_8">
@@ -297,7 +306,7 @@ convert</string>
     <string>System of number 2</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="numo1">
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -305,6 +314,9 @@ convert</string>
      <width>113</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>10</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
@@ -320,7 +332,7 @@ convert</string>
     <string>Number 1</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="numo2">
    <property name="geometry">
     <rect>
      <x>60</x>
@@ -328,6 +340,9 @@ convert</string>
      <width>113</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>20</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_9">
@@ -343,7 +358,7 @@ convert</string>
     <string>Number 2</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_4">
+  <widget class="QLineEdit" name="oper">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -351,6 +366,9 @@ convert</string>
      <width>16</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>+</string>
    </property>
    <property name="maxLength">
     <number>1</number>
@@ -372,8 +390,8 @@ convert</string>
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>719</y>
+     <x>650</x>
+     <y>709</y>
      <width>121</width>
      <height>31</height>
     </rect>
@@ -387,11 +405,11 @@ convert</string>
     <string>System of result</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="sys1_3">
+  <widget class="QSpinBox" name="sysor">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>760</y>
+     <x>660</x>
+     <y>750</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -406,14 +424,17 @@ convert</string>
     <number>30</number>
    </property>
    <property name="value">
-    <number>10</number>
+    <number>9</number>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_5">
+  <widget class="QLineEdit" name="reso">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>700</x>
-     <y>740</y>
+     <x>850</x>
+     <y>730</y>
      <width>113</width>
      <height>51</height>
     </rect>
@@ -437,8 +458,8 @@ convert</string>
   <widget class="QLabel" name="label_12">
    <property name="geometry">
     <rect>
-     <x>710</x>
-     <y>710</y>
+     <x>860</x>
+     <y>700</y>
      <width>51</width>
      <height>21</height>
     </rect>
@@ -457,7 +478,7 @@ convert</string>
     <rect>
      <x>30</x>
      <y>310</y>
-     <width>891</width>
+     <width>961</width>
      <height>261</height>
     </rect>
    </property>
@@ -469,10 +490,103 @@ convert</string>
     </font>
    </property>
    <property name="text">
-    <string>SOMETHING RLY CLEVER</string>
+    <string>2 + &quot;2&quot; - 2 == 20</string>
    </property>
    <property name="margin">
     <number>100</number>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="solvet">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>90</y>
+     <width>131</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.500318, stop:0 rgba(0, 0, 0, 0), stop:0.52 rgba(0, 0, 0, 61), stop:0.565 rgba(82, 121, 76, 33), stop:0.65 rgba(0, 0, 0, 178), stop:0.721925 rgba(0, 0, 0, 176), stop:0.77 rgba(255, 128, 128, 204), stop:0.89 rgba(191, 128, 255, 64), stop:1 rgba(0, 0, 0, 0));
+border: none
+
+</string>
+   </property>
+   <property name="text">
+    <string>Solve</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="solveo">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>690</y>
+     <width>131</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.500318, stop:0 rgba(0, 0, 0, 0), stop:0.52 rgba(0, 0, 0, 61), stop:0.565 rgba(82, 121, 76, 33), stop:0.65 rgba(0, 0, 0, 178), stop:0.721925 rgba(0, 0, 0, 176), stop:0.77 rgba(255, 128, 128, 204), stop:0.89 rgba(191, 128, 255, 64), stop:1 rgba(0, 0, 0, 0));
+border: none
+
+</string>
+   </property>
+   <property name="text">
+    <string>Solve</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>530</y>
+     <width>231</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+     <weight>75</weight>
+     <italic>true</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>(c) Marc Andreessen</string>
    </property>
   </widget>
  </widget>

@@ -30,7 +30,7 @@ class Main(QDialog):
         res = self.connection.cursor().execute(query).fetchall()
         self.dbviewer.setColumnCount(2)
         self.dbviewer.setRowCount(0)
-        for i, row in enumerate(res):
+        for i, row in enumerate(reversed(res)):
             self.dbviewer.setRowCount(
                 self.dbviewer.rowCount() + 1)
             for j, elem in enumerate(row):
@@ -44,6 +44,9 @@ class Main(QDialog):
         else:
             dlg = usefulwidgets.OkThen()
             dlg.exec()
+
+    def closeEvent(self, event):
+        usefulwidgets.on_close(event)
 
     def chemist(self):
         self.chemb.setDisabled(True)
@@ -71,6 +74,7 @@ def getdata():
     t = datetime.datetime.now().strftime(date_format)
     host_name = socket.gethostname()
     IP = socket.gethostbyname(host_name)
+    IP = 'тип тут айпи'
     cur.execute(f"""INSERT INTO entrances (time, ip) VALUES ('{t}', '{IP}');""")
     con.commit()
     con.close()
