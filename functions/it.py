@@ -2,6 +2,7 @@ import string
 
 
 def totenth(num, base):
+    """converts number to standard number system"""
     num = num.upper()
     num = num.split('.')
     res1 = 0.0
@@ -23,6 +24,7 @@ def totenth(num, base):
 
 
 def fromtenth(num, base):
+    """converts number from standard number system to other(system must be less 26)"""
     x = int(num.split('.')[0])
     res = ''
     while x >= base:

@@ -8,6 +8,7 @@ from PyQt5.QtCore import *
 
 
 class CustomDialog(QDialog):
+    """dialog that asks user about something"""
     def __init__(self, title, text):
         super().__init__()
         self.setWindowTitle(title)
@@ -23,6 +24,7 @@ class CustomDialog(QDialog):
 
 
 class OkThen(QDialog):
+    """idk why i did it but its dialog that shows when u press cancel in CustomDialog widget"""
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Ok Then")
@@ -30,6 +32,7 @@ class OkThen(QDialog):
 
 
 class Chart(QDialog):
+    """here is the widget that builds the chart in math screen"""
     def __init__(self, arrx, arry):
         self.arrx = arrx
         self.arry = arry

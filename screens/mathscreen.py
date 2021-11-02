@@ -21,6 +21,7 @@ class Math(QDialog):
         self.show()
 
     def buildchart(self):
+        """builds chart of given function"""
         try:
             try:
                 if '**' in self.function.text():
@@ -52,6 +53,7 @@ class Math(QDialog):
         usefulwidgets.on_close(event)
 
     def solve(self):
+        """solves all simple functions"""
         try:
             if self.gcd.text() != '':
                 self.gcdres.setText(str(math.gcd(*list(map(int, self.gcd.text().split())))))
@@ -65,18 +67,21 @@ class Math(QDialog):
             usefulwidgets.Customalert(self, e)
 
     def binsolve(self):
+        """solves simple equation using binary search"""
         try:
             self.res1.setText(fastequation(self.eq1.text()))
         except Exception as e:
             usefulwidgets.Customalert(self, e)
 
     def diophant(self):
+        """solves diophantine equation"""
         try:
             self.res3.setText(diophantic(self.eq3.text()))
         except Exception as e:
             usefulwidgets.Customalert(self, e)
 
     def quadratic(self):
+        """solves quadratic equation"""
         try:
             self.res2.setText(quadratic(self.eq2.text()))
         except Exception as e:

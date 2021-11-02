@@ -19,6 +19,7 @@ class It(QDialog):
         self.show()
 
     def translate(self):
+        """this function converts number from one number system to other"""
         try:
             n1 = self.numt1.text()
             sys1 = int(self.syst1.value())
@@ -28,6 +29,7 @@ class It(QDialog):
             usefulwidgets.Customalert(self, e)
 
     def operation(self):
+        """this function does operaions with numbers in specific number systems"""
         try:
             oper = self.oper.text()
             n1 = self.numo1.text()

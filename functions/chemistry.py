@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 
 
 def solveequation(x, y):
+    """function that solves simple chemistry reaction equation(need WI FI enabled, cause uses web-parsing)"""
     url = 'https://chemequations.com/ru/?s=' + x + '+%2B+' + y + '&ref=input'
 
     def get_html(url, params=None):
@@ -27,6 +28,7 @@ def solveequation(x, y):
 
 
 def chain(text):
+    """function that solves chemistry reactions chain(need WI FI enabled, cause uses web-parsing)"""
     def get_content(html):
         global y
         s = BeautifulSoup(html, 'html.parser')

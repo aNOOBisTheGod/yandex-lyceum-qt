@@ -22,11 +22,13 @@ class Chemist(QDialog):
         self.show()
 
     def solvechain(self):
+        """function that solves chemistry chain of reactions(need WI FI enabled)"""
         x = self.chain.text()
         self.chaintext = '\n'.join(functions.chemistry.chain(x))
         self.res2.setPlaceholderText(self.chaintext)
 
     def solve(self):
+        """solves simple chemist reaction equation(need WI FI enabled)"""
         x = self.elem1.text()
         y = self.elem2.text()
         self.anstext = functions.chemistry.solveequation(x, y)
