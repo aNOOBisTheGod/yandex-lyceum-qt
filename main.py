@@ -8,6 +8,8 @@ from PyQt5 import QtWidgets, uic
 import sqlite3
 import usefulwidgets
 from screens import chemistscreen, mathscreen, itscreen
+from urllib.request import urlopen
+import json
 
 
 class Main(QDialog):
@@ -24,6 +26,11 @@ class Main(QDialog):
         self.chemb.clicked.connect(self.chemist)
         self.mathb.clicked.connect(self.math)
         self.itb.clicked.connect(self.it)
+        self.website.setText('<a href="https://anoobisthegod.github.io/site/projects/pyqt.html">Website</a>')
+        self.website.setOpenExternalLinks(True)
+        self.github.setText('<a href="https://github.com/aNOOBisTheGod/yandex-lyceum-qt">GitHub</a>')
+        self.github.setOpenExternalLinks(True)
+        self.secure.clicked.connect(self.security)
         self.show()
 
     def select_data(self):
@@ -31,7 +38,7 @@ class Main(QDialog):
         1st - column - IP, 2nd - time of entrance"""
         query = "SELECT * FROM entrances"
         res = self.connection.cursor().execute(query).fetchall()
-        self.dbviewer.setColumnCount(2)
+        self.dbviewer.setColumnCount(5)
         self.dbviewer.setRowCount(0)
         for i, row in enumerate(reversed(res)):
             self.dbviewer.setRowCount(
@@ -72,6 +79,16 @@ class Main(QDialog):
         dlg.exec()
         self.itb.setDisabled(False)
 
+    def security(self):
+        try:
+            host_name = socket.gethostname()
+            IP = socket.gethostbyname(host_name)
+            res = self.connection.cursor().execute(f"UPDATE entrances set IP = 'Secret' WHERE IP = '{IP}'")
+        except Exception as e:
+            print(e)
+        self.connection.commit()
+        self.select_data()
+
 
 def getdata():
     """function that fills database with current time and IP, IP temporary disabled"""
@@ -81,9 +98,20 @@ def getdata():
     t = datetime.datetime.now().strftime(date_format)
     host_name = socket.gethostname()
     IP = socket.gethostbyname(host_name)
-    # IP is secret data ↑ function that get ur IP adress
-    IP = 'тип тут айпи'
-    cur.execute(f"""INSERT INTO entrances (time, ip) VALUES ('{t}', '{IP}');""")
+    IP = '123'
+    try:
+        url = 'http://ipinfo.io/json'
+        response = urlopen(url)
+        data = json.load(response)
+        city = data['city']
+        country = data['country']
+        region = data['region']
+    except:
+        city = 'wifi error'
+        country = 'wifi error'
+        region = 'wifi error'
+    cur.execute(f"""INSERT INTO entrances (time, ip, country, region, city) VALUES ('{t}', '{IP}',
+     '{country}', '{region}', '{city}');""")
     con.commit()
     con.close()
 

@@ -1,5 +1,4 @@
 import math
-import time
 
 
 def niceeval(a):
@@ -63,7 +62,7 @@ def median(a):
     for k, i in d.items():
         if i > max:
             res = k
-    return str(res)
+    return str(res) if res != -math.inf else 'None'
 
 
 def mean(line):
@@ -78,13 +77,16 @@ def mean(line):
 
 def fastequation(eq):
     """solves simple equation uses binary search"""
+    try:
+        eval(eq.split('=')[1])
+    except Exception as e:
+        raise Exception('Equation should be REALLY simple like x - 5 = 1')
     right = 1000000
     left = -1000000
-    ans = float(eq.split('=')[1])
+    ans = eval(eq.split('=')[1])
     eq = eq.split('=')[0].replace('x', '{}')
     for i in range(100):
         middle = (right + left) / 2
-        print(middle)
         e = float(eval(eq.format(middle)))
         if e > ans:
             right = middle

@@ -1,10 +1,7 @@
 import matplotlib.pyplot as plt
-import random
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
-from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
 
 
 class CustomDialog(QDialog):
@@ -58,11 +55,6 @@ def returnalert(self, e):
         buttons=QMessageBox.Discard,
         defaultButton=QMessageBox.Discard,
     )
-
-
-class Customalert(Exception):
-    def __init__(self, class_, err):
-        returnalert(class_, err)
 
 
 def on_close(event):

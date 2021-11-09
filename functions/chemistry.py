@@ -14,7 +14,7 @@ def solveequation(x, y):
         s = BeautifulSoup(html, 'html.parser')
         pog = s.find('h1', class_='equation main-equation well')
         if pog is None:
-            return 'Error, insert valid elements'
+            raise Exception('Error, insert valid elements')
         return pog.get_text()
 
     def parse():
@@ -22,7 +22,7 @@ def solveequation(x, y):
         if html.status_code == 200:
             return get_content(html.text)
         else:
-            return 'Error, enable WI-FI'
+            raise Exception('Error, enable WI-FI')
 
     return parse()
 
@@ -44,7 +44,7 @@ def chain(text):
         try:
             return totr
         except:
-             return '?'
+             raise Exception('Error, invalid elements')
 
     def parse():
         def get_html(url, params=None):
@@ -55,7 +55,7 @@ def chain(text):
         if html.status_code == 200:
             return get_content(html.text)
         else:
-            return 'Error, enable WI-FI'
+            raise Exception('Error, enable WI-FI')
 
     out = []
     c = 0
