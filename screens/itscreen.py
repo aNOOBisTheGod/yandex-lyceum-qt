@@ -1,10 +1,6 @@
-import math
-import os
-import sys
+from PyQt5.QtWidgets import QDialog
 
-from PyQt5.QtWidgets import QDialog, QTableWidgetItem, QHeaderView, QMessageBox
-
-from PyQt5 import QtWidgets, uic
+from PyQt5 import uic
 
 import usefulwidgets
 from functions.it import *
@@ -26,7 +22,7 @@ class It(QDialog):
             sys2 = int(self.syst2.value())
             self.rest.setText(fromtenth(totenth(n1, sys1), sys2))
         except Exception as e:
-            usefulwidgets.Customalert(self, e)
+            usefulwidgets.returnalert(self, e)
 
     def operation(self):
         """this function does operaions with numbers in specific number systems"""
@@ -40,7 +36,7 @@ class It(QDialog):
             base = int(self.sysor.value())
             self.reso.setText(fromtenth(str(res), base))
         except Exception as e:
-            usefulwidgets.Customalert(self, e)
+            usefulwidgets.returnalert(self, e)
 
     def closeEvent(self, event):
         usefulwidgets.on_close(event)

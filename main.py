@@ -83,6 +83,7 @@ class Main(QDialog):
         try:
             host_name = socket.gethostname()
             IP = socket.gethostbyname(host_name)
+            IP = 'unicorn'
             res = self.connection.cursor().execute(f"UPDATE entrances set IP = 'Secret' WHERE IP = '{IP}'")
         except Exception as e:
             print(e)
@@ -98,7 +99,7 @@ def getdata():
     t = datetime.datetime.now().strftime(date_format)
     host_name = socket.gethostname()
     IP = socket.gethostbyname(host_name)
-    IP = '123'
+    IP = 'unicorn' #censored for presentation
     try:
         url = 'http://ipinfo.io/json'
         response = urlopen(url)
@@ -120,3 +121,4 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     window = Main()
     app.exec_()
+

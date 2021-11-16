@@ -43,8 +43,8 @@ def chain(text):
                 break
         try:
             return totr
-        except:
-             raise Exception('Error, invalid elements')
+        except Exception as e:
+            return 'Invalid reaction or no no reactions like that'
 
     def parse():
         def get_html(url, params=None):
@@ -67,10 +67,10 @@ def chain(text):
         for j in range(10):
             url = 'https://tutata.ru/chemistry/search?s=%3D+' + y + '&page=' + str(j)
             res = parse()
-            if res != '?' or res == 'Error':
+            if res != 'Invalid reaction or no no reactions like that' or res == 'Error':
                 break
-        if len(res) == 1:
-            out.append(str(c) + ':  ' + '?')
+        if res == 'Invalid reaction or no no reactions like that':
+            out.append(str(c) + ':  ' + 'Invalid reaction or no no reactions like that')
         else:
             out.append(str(c) + ':  ' + ''.join(res)[1:])
     return out

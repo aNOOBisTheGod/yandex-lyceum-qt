@@ -2,8 +2,18 @@ import string
 
 
 def totenth(num, base):
-    """converts number to standard number system"""
     num = num.upper()
+    for i in num:
+        print(i)
+        if i == '.':
+            continue
+        if i.isalpha():
+            if string.ascii_uppercase.find(i) + 10 >= base:
+                raise Exception('Invalid number')
+        else:
+            if int(i) >= base:
+                raise Exception('Invalid number')
+    """converts number to standard number system"""
     num = num.split('.')
     res1 = 0.0
     for power, n in enumerate(reversed(list(num[0]))):
@@ -24,7 +34,7 @@ def totenth(num, base):
 
 
 def fromtenth(num, base):
-    """converts number from standard number system to other(system must be less 26)"""
+    """converts number from standard number system to other"""
     x = int(num.split('.')[0])
     res = ''
     while x >= base:

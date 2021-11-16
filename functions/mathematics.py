@@ -106,4 +106,4 @@ def quadratic(eq):
     elif d > 0.0:
         return ', '.join(list(map(str, [(-b + math.sqrt(d)) /(2 * a), (-b - math.sqrt(d)) /(2 * a)])))
     else:
-        return str(b /(2 * a))
+        return str(b / (2 * a))

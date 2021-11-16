@@ -29,7 +29,7 @@ class Math(QDialog):
                 else:
                     func = self.function.text()
             except Exception as e:
-                usefulwidgets.Customalert(self, e)
+                usefulwidgets.returnalert(self, e)
                 return
             arry = []
             arrx = []
@@ -43,11 +43,11 @@ class Math(QDialog):
                     except ZeroDivisionError as e:
                         print(e)
                 except Exception as e:
-                    usefulwidgets.Customalert(self, e)
+                    usefulwidgets.returnalert(self, e)
             dlg = usefulwidgets.Chart(arrx, arry)
             dlg.exec()
         except Exception as e:
-            usefulwidgets.Customalert(self, e)
+            usefulwidgets.returnalert(self, e)
 
     def closeEvent(self, event):
         usefulwidgets.on_close(event)
@@ -56,36 +56,40 @@ class Math(QDialog):
         """solves all simple functions"""
         try:
             if self.gcd.text() != '':
-                self.gcdres.setText(str(math.gcd(*list(map(int, self.gcd.text().split())))))
+                x = str(math.gcd(*list(map(int, self.gcd.text().split()))))
+                self.gcdres.setText(x if len(x) < 10 else 'too big')
             if self.lcm.text() != '':
-                self.lcmres.setText(str(math.lcm(*list(map(int, self.gcd.text().split())))))
+                x = str(math.lcm(*list(map(int, self.lcm.text().split()))))
+                self.lcmres.setText(x if len(x) < 10 else 'too big')
             if self.median.text() != '':
-                self.medianres.setText(median(self.median.text()))
+                x = median(self.median.text())
+                self.medianres.setText(x if len(x) < 12 else 'too big')
             if self.mean.text() != '':
-                self.meanres.setText(mean(self.mean.text()))
+                x = str(round(float(mean(self.mean.text())), 2))
+                self.meanres.setText(x if len(x) < 12 else 'too big')
         except Exception as e:
-            usefulwidgets.Customalert(self, e)
+            usefulwidgets.returnalert(self, e)
 
     def binsolve(self):
         """solves simple equation using binary search"""
         try:
             self.res1.setText(fastequation(self.eq1.text()))
         except Exception as e:
-            usefulwidgets.Customalert(self, e)
+            usefulwidgets.returnalert(self, e)
 
     def diophant(self):
         """solves diophantine equation"""
         try:
             self.res3.setText(diophantic(self.eq3.text()))
         except Exception as e:
-            usefulwidgets.Customalert(self, e)
+            usefulwidgets.returnalert(self, e)
 
     def quadratic(self):
         """solves quadratic equation"""
         try:
             self.res2.setText(quadratic(self.eq2.text()))
         except Exception as e:
-            usefulwidgets.Customalert(self, e)
+            usefulwidgets.returnalert(self, e)
 
 
 if __name__ == '__main__':
